@@ -6,7 +6,7 @@ const args = process.argv.slice(2);
 const useWebpack = args.indexOf('-w') !== -1;
 
 const app = express();
-const PORT = 8080;
+const { PORT = 8080 } = process.env;
 
 app.get('/config', (req, res) => {
   res.json({
