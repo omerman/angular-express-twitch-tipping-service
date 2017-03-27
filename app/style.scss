@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+}
+html,
+body,
+.container {
+    height: 100%;
+}
+.container {
+  display: flex;
+  > * {
+    flex: 1 1;
+  }
+}

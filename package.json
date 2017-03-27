@@ -58,5 +58,9 @@
     "style-loader": "^0.16.0",
     "to-string-loader": "^1.1.5",
     "url-loader": "^0.5.7"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.1",
+    "sass-loader": "^6.0.3"
   }
 }

@@ -1,4 +1,4 @@
 import angular from 'angular';
 import angularRoute from 'angular-route';
 
-export default angular.module('boilerplate', [angularRoute]);
+export default angular.module('tip-tap', [angularRoute]);

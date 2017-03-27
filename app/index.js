@@ -1,6 +1,6 @@
 import App from 'app/app.js';
-import 'app/controller'; // running controllers
-import HomeTemplateUrl from 'app/view/home.html';
+import guestTipSubModule from './guest-tip/index.js';
+import './style.scss';
 
 /**
  * App routing
@@ -12,13 +12,12 @@ import HomeTemplateUrl from 'app/view/home.html';
 function config($routeProvider, $locationProvider) {
   $locationProvider.html5Mode(false);
 
+  guestTipSubModule.addRoutes($routeProvider);
+
   // routes
-  $routeProvider
-    .when('/', {
-      templateUrl: HomeTemplateUrl,
-      controller: 'MainController',
-      controllerAs: 'main'
-    })
+  $routeProvider.otherwise({
+          redirectTo: '/tip'
+  });
     // .when('/contact', {
     //   templateUrl: 'views/contact.html',
     //   controller: 'MainController',
@@ -29,10 +28,6 @@ function config($routeProvider, $locationProvider) {
     //   controller: 'MainController',
     //   controllerAs: 'main'
     // })
-    .otherwise({
-      redirectTo: '/'
-    });
-
   // $httpProvider.interceptors.push('authInterceptor');
 }
 // safe dependency injection
