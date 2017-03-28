@@ -16,7 +16,7 @@ function config($routeProvider, $locationProvider) {
 
   // routes
   $routeProvider.otherwise({
-          redirectTo: '/tip'
+    redirectTo: '/tip'
   });
     // .when('/contact', {
     //   templateUrl: 'views/contact.html',
