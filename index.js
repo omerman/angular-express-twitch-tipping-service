@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 const path = require('path');
-const express = require('express');
 const bodyParser = require('body-parser');
+const express = require('express');
+const db = require('./db.js');
 const guestTip = require('./guest-tip/index.js');
 
 const args = process.argv.slice(2);
@@ -10,12 +11,17 @@ const useWebpack = args.indexOf('-w') !== -1;
 const app = express();
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+const dbConnectionPromise = db.connect();
 guestTip(app);
 
 const { PORT = 8080 } = process.env;
 const start = () => {
-  app.listen(PORT, () => {
-    console.log(`App started on port ${PORT}!`);
+  dbConnectionPromise.then(() => {
+    app.listen(PORT, () => {
+      console.log(`App started successfully on port ${PORT}!`);
+    });
+  }, err => {
+    console.error(err);
   });
 };
 
