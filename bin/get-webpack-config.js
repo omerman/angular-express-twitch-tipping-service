@@ -88,21 +88,19 @@ module.exports = ({ isProd = false, isWebpackDevServer = false } = {}) => ({
         use: ExtractTextPlugin.extract({
           use: [
             {
-              loader: 'style-loader' // creates style nodes from JS strings
-            }, {
               loader: 'css-loader' // translates CSS into CommonJS
+            }, {
+              loader: 'resolve-url-loader'
             }, {
               loader: 'sass-loader' // compiles Sass to CSS
             }
-          ]
+          ],
+          fallback: 'style-loader'
         })
       }, {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           use: [
-            {
-              loader: 'to-string-loader'
-            },
             {
               loader: 'css-loader'
             }

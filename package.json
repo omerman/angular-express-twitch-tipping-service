@@ -2,40 +2,34 @@
   "name": "simple-angular-express",
   "version": "0.0.1",
   "description": "simple-angular-express",
-  "main": "index.js",
-  "scripts": {
-    "postinstall": "npm run build:prod",
-    "lint": "eslint --ext .js,.jsx .",
-    "test": "npm run lint",
-    "build": "node ./bin/build.js",
-    "build:watch": "npm run build -- -w",
-    "build:prod": "npm run build -- -p",
-    "build:prod:watch": "npm run build:prod -- -w",
-    "build:watch:prod": "npm run build:prod:watch",
-    "start": "npm run start:prod -- -w",
-    "start:prod": "node ./index.js"
+  "keywords": [
+    "install",
+    "npm"
+  ],
+  "homepage": "https://github.com/omerman/simple-angular-express",
+  "bugs": {
+    "url": "https://github.com/omerman/simple-angular-express/issues"
   },
+  "license": "MIT",
   "author": "omerman",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:omerman/simple-angular-express.git"
   },
-  "keywords": [
-    "npm",
-    "install"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/omerman/simple-angular-express/issues"
+  "scripts": {
+    "build": "node ./bin/build.js",
+    "build:prod": "npm run build -- -p",
+    "build:prod:watch": "npm run build:prod -- -w",
+    "build:watch": "npm run build -- -w",
+    "build:watch:prod": "npm run build:prod:watch",
+    "postinstall": "npm run build:prod",
+    "lint": "eslint --ext .js,.jsx .",
+    "start": "npm run start:prod -- -w",
+    "start:prod": "node ./index.js",
+    "test": "npm run lint"
   },
-  "homepage": "https://github.com/omerman/simple-angular-express",
   "dependencies": {
-    "html-webpack-plugin": "^2.22.0",
-    "extract-text-webpack-plugin": "^2.1.0",
-    "webpack-hot-middleware": "^2.13.0",
-    "webpack-dev-middleware": "^1.8.4",
-    "webpack": "^2.3.2",
-    "express": "^4.14.0",
     "angular": "^1.6.3",
     "angular-route": "^1.6.3",
     "babel-core": "^6.17.0",
@@ -52,15 +46,20 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.1",
     "exports-loader": "^0.6.3",
+    "express": "^4.14.0",
+    "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
+    "html-webpack-plugin": "^2.22.0",
     "imports-loader": "^0.7.1",
+    "node-sass": "^4.5.1",
     "replace-loader": "^0.2.0",
+    "resolve-url-loader": "^2.0.2",
+    "sass-loader": "^6.0.3",
     "style-loader": "^0.16.0",
     "to-string-loader": "^1.1.5",
-    "url-loader": "^0.5.7"
-  },
-  "devDependencies": {
-    "node-sass": "^4.5.1",
-    "sass-loader": "^6.0.3"
+    "url-loader": "^0.5.7",
+    "webpack": "^2.3.2",
+    "webpack-dev-middleware": "^1.8.4",
+    "webpack-hot-middleware": "^2.13.0"
   }
 }
