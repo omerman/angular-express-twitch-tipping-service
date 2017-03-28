@@ -5,7 +5,6 @@ function GuestTipController($scope) {
   $scope.data = {
     amount: 5
   };
-
 }
 GuestTipController.$inject = ['$scope'];
 App.controller('GuestTipController', GuestTipController);
