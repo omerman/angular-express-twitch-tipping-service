@@ -1,6 +1,9 @@
 <div class="guest-tip">
   <div>
-    <input placeholder="Name">
+    <input placeholder="Name" ng-model="data.tipperName">
+  </div>
+  <div>
+    <input placeholder="Username you give the tip to" ng-model="data.username" />
   </div>
   <div>
     <input
@@ -10,7 +13,7 @@
     >$
   </div>
   <div>
-    <button>
+    <button ng-click="tip()">
       Tip!
     </button>
   </div>

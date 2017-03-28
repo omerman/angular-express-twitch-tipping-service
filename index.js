@@ -12,11 +12,11 @@ const app = express();
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 const dbConnectionPromise = db.connect();
-guestTip(app);
 
 const { PORT = 8080 } = process.env;
 const start = () => {
-  dbConnectionPromise.then(() => {
+  dbConnectionPromise.then(dbClient => {
+    guestTip(app, dbClient);
     app.listen(PORT, () => {
       console.log(`App started successfully on port ${PORT}!`);
     });

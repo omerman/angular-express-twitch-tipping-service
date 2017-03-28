@@ -1,0 +1,27 @@
+<div class="dashboard">
+  <!-- I never really use <table> etc.. but its for the simplicity -->
+  <div class="dashboard-tips">
+    <h1> Here are your most recent tips </h1>
+    <table>
+      <thead>
+        <th>
+          Name
+        </th>
+        <th>
+          <!--Hopefully I will sort by this column soon-->
+          Amount
+        </th>
+      </thead>
+      <tbody class="tip-list">
+        <tr class="tip" ng-repeat="tip in tips track by $index">
+          <td>
+            {{tip.tipperName}}
+          </td>
+          <td>
+            {{tip.amount}}$
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

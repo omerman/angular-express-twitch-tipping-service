@@ -3,11 +3,12 @@ const mongoose = require('mongoose');
 const COLLECTION = {
   GUEST_TIPS: 'guest_tips'
 };
-const storeTip = (dbClient, { username, amount, currency }) => {
+const storeTip = (dbClient, { tipperName, username, amount, currency }) => {
   return new Promise((resolve, reject) => {
-    const userFlowId = mongoose.Types.ObjectId();
+    const id = mongoose.Types.ObjectId();
     dbClient.collection(COLLECTION.GUEST_TIPS).insert({
-      _id: userFlowId,
+      _id: id,
+      tipperName,
       username,
       amount,
       currency
@@ -15,7 +16,7 @@ const storeTip = (dbClient, { username, amount, currency }) => {
       if (err) {
         reject(err);
       } else {
-        resolve(userFlowId);
+        resolve(id);
       }
     });
   });
