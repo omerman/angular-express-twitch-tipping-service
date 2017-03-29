@@ -1,6 +1,7 @@
 import App from 'app/app.js';
 import guestTipSubModule from './guest-tip/index.js';
 import dashboardSubModule from './dashboard/index.js';
+import overlaySubModule from './overlay/index.js';
 import './style.scss';
 
 function config($routeProvider, $locationProvider) {
@@ -8,6 +9,7 @@ function config($routeProvider, $locationProvider) {
 
   dashboardSubModule.addRoutes($routeProvider);
   guestTipSubModule.addRoutes($routeProvider);
+  overlaySubModule.addRoutes($routeProvider);
 
   // routes
   $routeProvider.otherwise({
