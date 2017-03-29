@@ -11,7 +11,9 @@ function OverlayController($scope, $routeParams) {
       $scope.$apply(() => {
         $scope.tip = tip;
         setTimeout(() => {
-          $scope.tip = undefined;
+          $scope.$apply(() => {
+            $scope.tip = undefined;
+          });
         }, OVERLAY_TIME);
       });
     }
