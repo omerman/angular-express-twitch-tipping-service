@@ -10,6 +10,8 @@ const args = process.argv.slice(2);
 const useWebpack = args.indexOf('-w') !== -1;
 
 const app = express();
+const ioServer = require('socket.io');
+
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 const dbConnectionPromise = db.connect();
@@ -17,11 +19,11 @@ const dbConnectionPromise = db.connect();
 const { PORT = 8080 } = process.env;
 const start = () => {
   dbConnectionPromise.then(dbClient => {
-    guestTip(app, dbClient);
-    dashbard(app, dbClient);
-    app.listen(PORT, () => {
+    const io = ioServer.listen(app.listen(PORT, () => {
       console.log(`App started successfully on port ${PORT}!`);
-    });
+    }));
+    guestTip(app, dbClient, io);
+    dashbard(app, dbClient, io);
   }, err => {
     console.error(err);
   });
