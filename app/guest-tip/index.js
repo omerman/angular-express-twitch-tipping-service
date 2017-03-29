@@ -6,8 +6,7 @@ export default {
   addRoutes($routeProvider) {
     $routeProvider.when('/tip', {
       templateUrl: guestTipTemplate,
-      controller: 'GuestTipController',
-      controllerAs: 'guestTip'
+      controller: 'GuestTipController'
     });
   }
 };

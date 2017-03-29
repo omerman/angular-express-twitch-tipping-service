@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const db = require('./db.js');
 const guestTip = require('./guest-tip/index.js');
+const dashbard = require('./dashboard/index.js');
 
 const args = process.argv.slice(2);
 const useWebpack = args.indexOf('-w') !== -1;
@@ -17,6 +18,7 @@ const { PORT = 8080 } = process.env;
 const start = () => {
   dbConnectionPromise.then(dbClient => {
     guestTip(app, dbClient);
+    dashbard(app, dbClient);
     app.listen(PORT, () => {
       console.log(`App started successfully on port ${PORT}!`);
     });

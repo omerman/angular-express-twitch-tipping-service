@@ -1,7 +1,8 @@
 <div class="dashboard">
+  <h1>Hello {{user.username}}</h1>
   <!-- I never really use <table> etc.. but its for the simplicity -->
-  <div class="dashboard-tips">
-    <h1> Here are your most recent tips </h1>
+  <div class="dashboard-tips" ng-if="tips !== undefined && tips.length > 0">
+    <h3> Here are your most recent tips </h3>
     <table>
       <thead>
         <th>
@@ -23,5 +24,8 @@
         </tr>
       </tbody>
     </table>
+  </div>
+  <div class="dashboard-noob" ng-if="tips !== undefined && tips.length === 0">
+    <h3> You havent made any tips lately. Work Harder ;) </h3>
   </div>
 </div>

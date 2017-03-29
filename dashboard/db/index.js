@@ -3,7 +3,7 @@ const COLLECTION = {
 };
 const getMostRecentTips = (dbClient, { username }) => {
   return new Promise((resolve, reject) => {
-    dbClient.collection(COLLECTION.GUEST_TIPS).find({}, { tipperName: 1, ammount: 1 }).toArray((err, mostRecentTipsArray) => {
+    dbClient.collection(COLLECTION.GUEST_TIPS).find({ username }, { _id: 0, tipperName: 1, amount: 1 }).toArray((err, mostRecentTipsArray) => {
       if (err) {
         reject(err);
       } else {

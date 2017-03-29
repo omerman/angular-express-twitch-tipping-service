@@ -4,10 +4,9 @@ import './style.scss';
 
 export default {
   addRoutes($routeProvider) {
-    $routeProvider.when('/tip', {
-      templateUrl: guestTipTemplate,
-      controller: 'GuestTipController',
-      controllerAs: 'guestTip'
+    $routeProvider.when('/dashboard', {
+      templateUrl: dashBoardTemplate,
+      controller: 'DashboardController'
     });
   }
 };

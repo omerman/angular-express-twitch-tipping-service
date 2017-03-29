@@ -5,8 +5,8 @@ module.exports = (app, dbClient) => {
     const { username } = req.query;
     console.log('dashboard - get', 'params>', username);
     getMostRecentTips(dbClient, { username })
-    .then(() => {
-      res.status(200).end();
+    .then(mostRecentTipsArray => {
+      res.status(200).json(mostRecentTipsArray);
     })
     .catch(err => {
       console.log('dashboard - get', 'ERROR>', err);
