@@ -10,7 +10,7 @@ function DashboardController($scope) {
   $scope.user = {
     username
   };
-  const socket = ioClient('http://localhost:8080');
+  const socket = ioClient();
   socket.on('tip', tip => {
     if (tip.username === username) {
       const { tipperName, amount } = tip;
