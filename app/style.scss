@@ -10,7 +10,4 @@ body,
   display: flex;/* Normally my styling would be much more modular and reasonable */
   flex-direction: column;/* Normally my styling would be much more modular and reasonable */
   justify-content: center;/* Normally my styling would be much more modular and reasonable */
-  > * {/* Normally my styling would be much more modular and reasonable */
-    flex: 1 1;
-  }
 }
