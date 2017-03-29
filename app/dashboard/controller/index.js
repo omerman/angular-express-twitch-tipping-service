@@ -10,9 +10,8 @@ function DashboardController($scope, $routeParams) {
   $scope.username = undefined;  // initial state, just to be clear on $scope.tips possible states.
   const { code: twitchCode } = $routeParams;
   const clientId = getTwitchClientId(ROUTES.DASHBOARD);
-  const redirectUri = `${window.location.host}${window.location.pathname}`;
   if (twitchCode) {
-    const authenticationPromise = tipsApi.authenticate({ twitchCode, clientId, redirectUri });
+    const authenticationPromise = tipsApi.authenticate({ twitchCode, clientId });
     authenticationPromise.then(({ username }) => {
       const socket = ioClient();
       socket.on('tip', tip => { // ~~ unsafe, better ways to handle ~~

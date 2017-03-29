@@ -33,14 +33,14 @@ export default {
       return Promise.reject(err);
     });
   },
-  authenticate({ twitchCode, clientId, redirectUri }) {
+  authenticate({ twitchCode, clientId }) {
     return fetch('authenticate', {
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       },
       method: 'POST',
-      body: JSON.stringify({ twitchCode, clientId, redirectUri })
+      body: JSON.stringify({ twitchCode, clientId })
     }).then(response => {
       if (response.status === 200) {
         return response.json();

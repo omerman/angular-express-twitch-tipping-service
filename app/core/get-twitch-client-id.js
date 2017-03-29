@@ -10,7 +10,7 @@ export default route => {
       if (__DEV__) {
         clientId = '22wbe38tmqmd276z7qmqjzgl6vufh2';
       } else {
-        clientId = '22wbe38tmqmd276z7qmqjzgl6vufh2';
+        clientId = 'f7k1plp3ps8zqkf4oubl7yeup441ce';
       }
       break;
     default:
@@ -18,7 +18,7 @@ export default route => {
       if (__DEV__) {
         clientId = 'kric4td921grvys4c247y7ovexz910';
       } else {
-        clientId = 'kric4td921grvys4c247y7ovexz910';
+        clientId = 'ajkgu38jiai2klomgkstvgkbs5sp44';
       }
   }
   return clientId;

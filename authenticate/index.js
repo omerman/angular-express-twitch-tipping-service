@@ -2,7 +2,9 @@ const request = require('request');
 
 const CLIENT_IDS = {
   DASHBOARD_LOCAL: '22wbe38tmqmd276z7qmqjzgl6vufh2',
-  OVERLAY_LOCAL: 'kric4td921grvys4c247y7ovexz910'
+  OVERLAY_LOCAL: 'kric4td921grvys4c247y7ovexz910',
+  DASHBOARD_PROD: 'f7k1plp3ps8zqkf4oubl7yeup441ce',
+  OVERLAY_PROD: 'ajkgu38jiai2klomgkstvgkbs5sp44'
 };
 const authConfig = {
   [CLIENT_IDS.DASHBOARD_LOCAL]: {
@@ -12,6 +14,14 @@ const authConfig = {
   [CLIENT_IDS.OVERLAY_LOCAL]: {
     clientSecret: 'zr7ezi5by22o4yu7l26j72ybyp6sa6',
     redirectUri: 'http://localhost:8080/overlay'
+  },
+  [CLIENT_IDS.DASHBOARD_PROD]: {
+    clientSecret: 'v1x0m8u3rl96j9jppfghltvk34fbey',
+    redirectUri: 'http://tip-tap.herokuapp.com/dashboard'
+  },
+  [CLIENT_IDS.OVERLAY_PROD]: {
+    clientSecret: '50opsai5wfwevmjv7xssqvqoag4sq0',
+    redirectUri: 'http://tip-tap.herokuapp.com/overlay'
   }
 };
 
