@@ -18,6 +18,7 @@ export default {
   },
   getUserTips() {
     return fetch('dashboard/tips', {
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -34,6 +35,7 @@ export default {
   },
   authenticate({ twitchCode, clientId, redirectUri }) {
     return fetch('authenticate', {
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       },

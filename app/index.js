@@ -5,7 +5,7 @@ import overlaySubModule from './overlay/index.js';
 import './style.scss';
 
 function config($routeProvider, $locationProvider) {
-  $locationProvider.html5Mode(false);
+  $locationProvider.html5Mode(true);
 
   dashboardSubModule.addRoutes($routeProvider);
   guestTipSubModule.addRoutes($routeProvider);

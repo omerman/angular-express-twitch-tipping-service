@@ -10,12 +10,12 @@ function DashboardController($scope, $routeParams) {
   $scope.username = undefined;  // initial state, just to be clear on $scope.tips possible states.
   const { code: twitchCode } = $routeParams;
   const clientId = getTwitchClientId(ROUTES.DASHBOARD);
-  const redirectUri = window.location.href;
+  const redirectUri = `${window.location.host}${window.location.pathname}`;
   if (twitchCode) {
     const authenticationPromise = tipsApi.authenticate({ twitchCode, clientId, redirectUri });
-    authenticationPromise.then(username => {
+    authenticationPromise.then(({ username }) => {
       const socket = ioClient();
-      socket.on('tip', tip => {
+      socket.on('tip', tip => { // ~~ unsafe, better ways to handle ~~
         if (tip.username === username) {
           const { tipperName, amount } = tip;
           alert(`You got a new tip in the amount of ${amount}! from "${tipperName}"`); // very simplifed.. I never use `window.alert` on real projects..
@@ -24,17 +24,22 @@ function DashboardController($scope, $routeParams) {
           });
         }
       });
-    }).catch(err => {
-      // Assuming code is incorrect.
-      // TODO: reload route without params.
-    });
-    authenticationPromise.then(() => tipsApi.getUserTips()).then(tips => {
       $scope.$apply(() => {
-        $scope.tips = tips;
+        $scope.username = username;
       });
+      tipsApi.getUserTips().then(tips => {
+        $scope.$apply(() => {
+          $scope.tips = tips;
+        });
+      });
+    }).catch(err => {
+      console.log(err);
+      alert('try reloading the page without query parameters.');
     });
   } else {
-    window.location.href = twitchApi.getLoginUrl({ clientId });
+    twitchApi.getLoginUrl({ clientId }).then(url => {
+      window.location.href = url;
+    })
   }
   console.log('DashboardController controller is up and loaded');
 }
