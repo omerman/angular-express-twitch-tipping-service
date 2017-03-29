@@ -2,18 +2,17 @@
 const path = require('path');
 const bodyParser = require('body-parser');
 const express = require('express');
+const ioServer = require('socket.io');
 const db = require('./db.js');
 const guestTip = require('./guest-tip/index.js');
 const dashbard = require('./dashboard/index.js');
-
-const args = process.argv.slice(2);
-const useWebpack = args.indexOf('-w') !== -1;
+const session = require('express-session');
 
 const app = express();
-const ioServer = require('socket.io');
-
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.use(session({ secret: 'my secret secret session you never guess. sure i will. no.', cookie: { maxAge: 60000 } }));
+
 const dbConnectionPromise = db.connect();
 
 const { PORT = 8080 } = process.env;
@@ -29,6 +28,8 @@ const start = () => {
   });
 };
 
+const args = process.argv.slice(2);
+const useWebpack = args.indexOf('-w') !== -1;
 if (!useWebpack) {
   app.use(express.static(path.join(__dirname, 'dist')));
   start();
