@@ -39,7 +39,7 @@ function DashboardController($scope, $routeParams) {
   } else {
     twitchApi.getLoginUrl({ clientId }).then(url => {
       window.location.href = url;
-    })
+    });
   }
   console.log('DashboardController controller is up and loaded');
 }

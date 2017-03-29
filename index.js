@@ -18,7 +18,7 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(session({ secret: 'my secret secret session you never guess. sure i will. no.', cookie: { maxAge: 60000 } }));
 app.use((req, res, next) => {
-  if (['/dashboard', '/overlay', '/tip'].indexOf(req.path) !== -1) {
+  if (req.method === 'GET' && ['/dashboard', '/overlay', '/tip'].indexOf(req.path) !== -1) {
     request.get({ url: `http://127.0.0.1:${PORT}`, headers: req.headers }, (error, response, body) => {
       res.send(body);
     });

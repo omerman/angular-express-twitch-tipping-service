@@ -4,7 +4,7 @@ import './style.scss';
 
 export default {
   addRoutes($routeProvider) {
-    $routeProvider.when('/overlay/:username', {
+    $routeProvider.when('/overlay', {
       templateUrl: overlayTemplate,
       controller: 'OverlayController'
     });
