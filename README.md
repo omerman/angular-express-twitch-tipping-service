@@ -2,7 +2,7 @@
 
 ## Description
 
-This app is here to help with writing an application that mocks a tipping service using some of twitch's api. under /tip, you can tip a user. under /dashboard you can view tips and get real time tips. the /overlay is a page you add as a browser plugin for obs(this is for the streamers), the streaming platform, in this page you get live notifications about incoming tips.
+This app is here to help with writing an application that mocks a tipping service using some of twitch's api. under /tip, you can tip a user. under /dashboard you can view tips and get real time tips. the /overlay(this page is for streamers) is a page you add as a browser plugin for obs(or any other like obs platform, that has a browser plugin), the streaming platform, in this page you get live notifications about incoming tips.
 
 ## Installation
 
