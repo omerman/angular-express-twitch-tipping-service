@@ -6,7 +6,7 @@
 
 ## Development
 * `npm start`
-* You will also need a mongo uri, see `db.js`
+* You will also need your very own mongo uri, see `db.js`
 
 
 
