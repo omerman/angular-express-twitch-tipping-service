@@ -5,8 +5,7 @@
 * `npm i`
 
 ## Development
-* `npm start`
-* You will also need your very own mongo uri, see `db.js`
+* Linux: `MONGO_URI=<your mongo uri> npm start`, Windows: `set MONGO_URI=<your mongo uri> && npm start`
 
 
 
