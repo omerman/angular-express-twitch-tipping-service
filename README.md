@@ -12,7 +12,7 @@ This app is here to help with writing an application that mocks a tipping servic
 * Linux: `MONGO_URI=<your mongo uri> npm start`, Windows: `set MONGO_URI=<your mongo uri> && npm start`
 
 ## Prod - If one ever feel the need to actually see this as more than a demo
-* Well, the obvious things would be using the real twitch tipping service, instead of using mongodb, also styling the application.
+* Well, the obvious things would be removing mongodb usages( and using twitch api for the tipping & querying for data), also styling the application.
 * Remove any usages of the dummy twitch account I opened. see `authentication/index.js` and `app/core/get-twitch-client-id.js`
 
 
