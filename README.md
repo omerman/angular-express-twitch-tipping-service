@@ -15,6 +15,4 @@ This app is here to help with writing an application that mocks a tipping servic
 * Well, the obvious things would be removing mongodb usages(using twitch api for the tipping & querying for data), also styling the application.
 * Remove any usages of the dummy twitch account I opened. see `authentication/index.js` and `app/core/get-twitch-client-id.js`
 
-
-
-
+Enjoy
