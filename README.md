@@ -1,4 +1,4 @@
-# Tip tap
+# angular-express-twitch-tipping-service
 
 ## Installation
 
